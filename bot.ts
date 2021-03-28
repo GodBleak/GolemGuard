@@ -6,7 +6,7 @@ import { MTProto } from '@mtproto/core'
 const { sleep } = require('@mtproto/core/src/utils/common');
 const api_id =  process.env.API_ID
 const api_hash = process.env.API_HASH;
-console.log(api_id, api_hash)
+//@ts-ignore
 const mtproto = new MTProto({ api_id, api_hash});
 const allowed = require('./lists/allowedUsers.json')
 const banned = require('./lists/bannedUsers.json')
@@ -73,7 +73,7 @@ function userNotAuthorized(bot:Telegraf, mc, player){
 }
 
 mc.on('playerJoined', (async (player) => {
-    if(player.username == mc.username) return null
+    if(player.username == mc.username) return console.log(`I've joined the server`)
     if(allowed[player.username]) return mc.chat(`/gamemode survival ${player.username}`)
     mc.chat(`/gamemode spectator ${player.username}`)
     if(banned[player.username]) return mc.chat(`/kick ${player.username} [blacklist]`)

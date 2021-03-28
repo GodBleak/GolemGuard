@@ -5,7 +5,7 @@
   "main": "bot.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node bot.js"
+    "start": "ts-node bot.ts"
   },
   "author": "GodBleak",
   "license": "MIT",
