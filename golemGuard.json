@@ -1,0 +1,14 @@
+{
+    "apps" : [{
+      "name"        : "GolemGuard",
+      "script"      : "./bot.ts",
+      "max_memory_restart": "900M",
+      "watch"       : true,
+      "env": {
+        "NODE_ENV": "production"
+      },
+      "env_production" : {
+         "NODE_ENV": "production"
+      }
+    }]
+  }

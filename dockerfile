@@ -2,8 +2,8 @@ FROM node:14
 WORKDIR /bot
 COPY package*.json ./
 RUN npm install
-RUN npm install -g typescript
-RUN npm install -g ts-node
+RUN npm install pm2@latest -g
+RUN $(npm get prefix)/bin/pm2 install typescript
 COPY  . .
 ENV API_ID =
 ENV API_HASH =
@@ -19,4 +19,5 @@ ENV PORT 3000
 
 EXPOSE 3000
 EXPOSE 3007 
-CMD ["npm", "start"]
+RUN pm2 start golemGuard.json
+CMD ["pm2", "logs"]
